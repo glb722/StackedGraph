@@ -47,7 +47,7 @@ var svg = d3.select("#chart-svg").append("svg")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("kick.csv", function (data){
+d3.csv("blog/kick.csv", function (data){
     
     var headers = ["Under $1000","$1000 - 9999","$10000 - 19999","$20000 - 99999","$100K - 999999","Over $1 Million"];
     
