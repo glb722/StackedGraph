@@ -49,7 +49,7 @@ var svg = d3.select("body").append("svg")
 
 d3.json("blog/data.json", function (data){
     
-    var headers = ["Under $1000","$1000 - 9999","$10000 - 19999","$20000 - 99999","$100K - 999999","Over $1 Million"];
+    var headers = ["Sent","Received","Failed","Success","Other","Things"];
     var stack = d3.layout.stack();
     var layers = stack(headers.map(function(priceRange) {
         return data.map(function(d) {
