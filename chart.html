@@ -27,12 +27,11 @@ form {
 }
 
 </style>
-<!--<form>
+<form>
   <label><input type="radio" name="mode" value="grouped"> Grouped</label>
   <label><input type="radio" name="mode" value="stacked" checked> Stacked</label>
-</form>-->
+</form>
 <script src="http://d3js.org/d3.v3.min.js"></script>
-<div>
 <script>
 
   var n = 6, // number of layers
@@ -42,7 +41,7 @@ var margin = {top: 20, right: 50, bottom: 100, left: 75},
     width = 740 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-var svg = d3.select("#chart-svg").append("svg")
+var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -51,8 +50,8 @@ var svg = d3.select("#chart-svg").append("svg")
 d3.csv("blog/kick.csv", function (data){
     
     var headers = ["Under $1000","$1000 - 9999","$10000 - 19999","$20000 - 99999","$100K - 999999","Over $1 Million"];
-    
-    var layers = d3.layout.stack()(headers.map(function(priceRange) {
+    var stack = d3.layout.stack();
+    var layers = stack(headers.map(function(priceRange) {
         return data.map(function(d) {
           return {x: d.Category, y: +d[priceRange]};
         });
@@ -132,11 +131,11 @@ console.log(layers);
             .attr("class", "legend")
             .attr("transform", function(d, i) { return "translate(-20," + i * 20 + ")"; });
        
-        legend.append("rect")
+        /*legend.append("rect")
             .attr("x", width - 18)
             .attr("width", 18)
             .attr("height", 18)
-            .style("fill", color);
+            .style("fill", color);*/
     
         legend.append("text")
               .attr("x", width - 24)
@@ -220,4 +219,3 @@ console.log(layers);
         .attr("font-weight", "bold");
 });
 </script>
-</div>
