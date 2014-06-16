@@ -51,9 +51,9 @@ d3.json("blog/data.json", function (data){
     
     var headers = ["Sent","Received","Failed","Success","Other","Things"];
     var stack = d3.layout.stack();
-    var layers = stack(headers.map(function(type) {
+    var layers = stack(headers.map(function(priceRange) {
         return data.map(function(d) {
-          return {x: d.Category, y: +d[type]};
+          return {x: d.Category, y: +d[priceRange]};
         });
     }));
 console.log(layers);
