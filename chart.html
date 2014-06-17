@@ -105,6 +105,7 @@ d3.json("blog/data.json", function (data){
         .style("fill", function(d, i) { return color(i); });
 
     var rect = layer.selectAll("rect")
+        .attr("id", "barchart")
         .data(function(d) { return d; })
         .enter().append("rect")
         .attr("x", function(d) { return xScale(d.x); })
@@ -282,7 +283,7 @@ d3.json("blog/data.json", function (data){
         n++;
       }
       //transitionStacked(); 
-      svg.transform();
+      var updateBar = svg.selectAll(".barchart").transition().duration(500);
       console.log("header "+header);
       console.log(" n "+n);
       return false; 
