@@ -39,7 +39,7 @@ form {
    <input type="checkbox" id="other" value="other">Other</input><br>
    <input type="checkbox" id="things" value="things">Things</input><br>
    <input type="checkbox" id="blah" value="blah">Blah</input><br>
-   <input type="button" name="filter" value="Filter"></a>
+   <input type="button" id="filter" value="Filter"></a>
 </form>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
@@ -162,7 +162,7 @@ d3.json("blog/data.json", function (data){
 
 
     d3.selectAll("input[name=\"mode\"]").on("change", change);
-    d3.selectAll("input[name=\"filter\"]").onclick = CheckVals; 
+    document.getElementById("filter").onclick = CheckVals; 
     
     var timeout = setTimeout(function() {
       d3.select("input[value=\"grouped\"]").property("checked", true).each(change);
