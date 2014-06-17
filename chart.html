@@ -165,7 +165,7 @@ d3.json("blog/data.json", function (data){
       y.domain([0, yGroupMax]);
       //y.call(yAxis);
       //yAxis=d3.svg.axis().scale(y).tickValues();
-      rescale();
+      //rescale();
       rect.transition()
           .duration(500)
           .delay(function(d, i) { return i * 10; })
@@ -191,7 +191,7 @@ d3.json("blog/data.json", function (data){
       y.domain([0, yStackMax]);
       //y.call(yAxis);
       //yAxis=d3.svg.axis().scale(y).tickValues();
-      rescale();
+      //rescale();
       rect.transition()
           .duration(500)
           .delay(function(d, i) { return i * 10; })
@@ -216,8 +216,7 @@ d3.json("blog/data.json", function (data){
       svg.select(".yaxis")
             .transition().duration(1500).ease("sin-in-out")
             .call(yAxis);
-      svg.select(".yaxislabel")
-            .text("Rescaled Axis");
+      
       console.log("rescale");
     }
 
