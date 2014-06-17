@@ -53,11 +53,10 @@ d3.json("blog/data.json", function (data){
     var stack = d3.layout.stack();
     var layers = stack(headers.map(function(dataRange) {
         return data.map(function(d) {
-          console.log("DataRange"+dataRange+"/n");
-          return {x: d.Category, y: +d[dataRange]};
+          return {x: d.Category, y: d[dataRange]};
         });
     }));
-console.log(layers);
+//console.log(layers);
     var yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); });
     var yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { console.log("d.y0"+d.y0+"d.y"+d.y); return d.y0 + d.y; }); });
     
@@ -68,7 +67,7 @@ console.log(layers);
     var y = d3.scale.linear()
         .domain([0, yStackMax])
         .range([height, 0]);
-    console.log("YstackMax"+yStackMax)
+    console.log("YstackMax "+yStackMax)
     var color = d3.scale.ordinal()
         .domain(headers)
         .range(["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E"]);
