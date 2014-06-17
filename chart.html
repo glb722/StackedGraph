@@ -283,7 +283,7 @@ d3.json("blog/data.json", function (data){
         n++;
       }
       //transitionStacked(); 
-      var updateBar = svg.selectAll(".barchart").transition().duration(500);
+      var updateBar = svg.selectAll(".barchart").transition();
       console.log("header "+header);
       console.log(" n "+n);
       return false; 
