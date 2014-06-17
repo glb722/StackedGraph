@@ -65,7 +65,7 @@ d3.json("blog/data.json", function (data){
         .rangeRoundBands([25, width], .08);
 
     var y = d3.scale.linear()
-        .domain([0, yStackMax])
+        .domain([0, yGroupMax])
         .range([height, 0]);
     console.log("YstackMax "+yStackMax)
     console.log("YgroupMax "+yGroupMax)
