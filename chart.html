@@ -160,6 +160,7 @@ d3.json("blog/data.json", function (data){
     }
 
     function transitionGrouped() {
+      console.log("transGrp");
       y.domain([0, yGroupMax]);
       //y.call(yAxis);
       //yAxis=d3.svg.axis().scale(y).tickValues();
@@ -185,6 +186,7 @@ d3.json("blog/data.json", function (data){
     };
 
     function transitionStacked() {
+      console.log("transStk");
       y.domain([0, yStackMax]);
       //y.call(yAxis);
       //yAxis=d3.svg.axis().scale(y).tickValues();
