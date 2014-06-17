@@ -49,7 +49,7 @@ var svg = d3.select("body").append("svg")
 
 d3.json("blog/data.json", function (data){
     
-    var jArray = JSON.parse(blog/data.json);
+    var jArray = JSON.parse(data);
     console.log(jArray);
     var headers = ["Sent","Received","Failed","Success","Other","Things", "Blah"];
     var stack = d3.layout.stack();
