@@ -180,6 +180,8 @@ d3.json("blog/data.json", function (data){
         .on("mousemove", function(d) {
           var xPosition = d3.mouse(this)[0] - 15;
           var yPosition = d3.mouse(this)[1] - 25;
+          console.log("xposition "+xPosition+" yposition "+yPosition);
+
           tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
           
           tooltip.select("text").text(d.y);
@@ -206,7 +208,6 @@ d3.json("blog/data.json", function (data){
         .on("mousemove", function(d) {
           var xPosition = d3.mouse(this)[0] - 15;
           var yPosition = d3.mouse(this)[1] - 25;
-          console.log("xposition "+xPosition+" yposition "+yPosition);
           tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
           tooltip.select("text").text(d.y);
         });
