@@ -39,7 +39,7 @@ form {
    <input type="checkbox" id="other" value="other">Other</input><br>
    <input type="checkbox" id="things" value="things">Things</input><br>
    <input type="checkbox" id="blah" value="blah">Blah</input><br>
-   <a type="button" onclick="return checkVals();">Filter</a>
+   <a type="button" onclick="return CheckVals();">Filter</a>
 </form>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
@@ -234,7 +234,7 @@ d3.json("blog/data.json", function (data){
       //console.log("rescale");
     }
     
-    function checkVals(){
+    function CheckVals(){
       header = [];
       colorArray = [];//["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E", "#d0743c"]
       if(document.getElementById('sent').checked)
