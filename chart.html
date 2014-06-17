@@ -281,7 +281,8 @@ d3.json("blog/data.json", function (data){
         colorArray.push("#d0743c");
         n++;
       }
-      transitionStacked(); 
+      //transitionStacked(); 
+      svg.transition();
       console.log("header "+header);
       console.log(" n "+n);
       return false; 
