@@ -32,13 +32,14 @@ form {
   <label><input type="radio" name="mode" value="stacked" > Stacked</input></label>
 </form>
 <form style="top: 50px">
-   <input type="checkbox" name="sent" value="sent">Sent</input><br>
-   <input type="checkbox" name="received" value="received">Received</input><br>
-   <input type="checkbox" name="failed" value="failed">Failed</input><br>
-   <input type="checkbox" name="success" value="success">Success</input><br>
-   <input type="checkbox" name="other" value="other">Other</input><br>
-   <input type="checkbox" name="things" value="things">Things</input><br>
-   <input type="checkbox" name="blah" value="blah">Blah</input>
+   <input type="checkbox" id="sent" value="sent">Sent</input><br>
+   <input type="checkbox" id="received" value="received">Received</input><br>
+   <input type="checkbox" id="failed" value="failed">Failed</input><br>
+   <input type="checkbox" id="success" value="success">Success</input><br>
+   <input type="checkbox" id="other" value="other">Other</input><br>
+   <input type="checkbox" id="things" value="things">Things</input><br>
+   <input type="checkbox" id="blah" value="blah">Blah</input><br>
+   <button onclick="checkVals()">Filter</button>
 </form>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
@@ -80,9 +81,10 @@ d3.json("blog/data.json", function (data){
         .range([height, 0]);
     //console.log("YstackMax "+yStackMax)
     //console.log("YgroupMax "+yGroupMax)
+    var colorArray = ["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E", "#d0743c"];
     var color = d3.scale.ordinal()
         .domain(headers)
-        .range(["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E", "#d0743c"]);
+        .range(colorArray);
       //"#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E"
       //"#d0743c", "#8a89a6", "#6b486b", "#7b6888", "#a05d56", "#BB6836"]
     var xAxis = d3.svg.axis()
@@ -230,6 +232,40 @@ d3.json("blog/data.json", function (data){
             .call(yAxis);
       
       //console.log("rescale");
+    }
+    
+    function checkVals(){
+      header = [];
+      
+      if(document.getElementById('sent').checked)
+      {
+        header.push("Sent");
+        
+      }
+      if(document.getElementById('received').checked)
+      {
+        
+      }
+      if(document.getElementById('failed').checked)
+      {
+        
+      }
+      if(document.getElementById('success').checked)
+      {
+        
+      }
+      if(document.getElementById('other').checked)
+      {
+        
+      }
+      if(document.getElementById('things').checked)
+      {
+        
+      }
+      if(document.getElementById('blah').checked)
+      {
+        
+      }
     }
 
     var tooltip = svg.append("g")
