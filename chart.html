@@ -182,7 +182,7 @@ d3.json("blog/data.json", function (data){
           var yPosition = d3.mouse(this)[1] - 25;
           tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
           
-          tooltip.select("text").text(y);
+          tooltip.select("text").text(d.y);
         });
     };
 
@@ -208,7 +208,7 @@ d3.json("blog/data.json", function (data){
           var yPosition = d3.mouse(this)[1] - 25;
           console.log(xPosition);
           tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
-          tooltip.select("text").text("hello world");
+          tooltip.select("text").text(d.y);
         });
     };
 
@@ -226,7 +226,7 @@ d3.json("blog/data.json", function (data){
     tooltip.append("rect")
         .attr("width", 30)
         .attr("height", 20)
-        .attr("fill", "red")
+        .attr("fill", "white")
         .style("opacity", 0.5);
      
     tooltip.append("text")
