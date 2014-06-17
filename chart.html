@@ -210,7 +210,7 @@ d3.json("blog/data.json", function (data){
     };
 
     function rescale(){
-      svg.select("y axis").transition().duration(1500).ease("sin-in-out").call(yAxis);
+      svg.select(".y axis").transition().duration(1500).ease("sin-in-out").call(yAxis);
     }
 
     var tooltip = svg.append("g")
