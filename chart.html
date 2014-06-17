@@ -117,7 +117,7 @@ d3.json("blog/data.json", function (data){
                 });
     
     svg.append("g")
-        .attr("class", "yaxis")
+        .attr("class", "y axis")
         .attr("transform", "translate(20,0)")
         .call(yAxis)
       .append("text")
@@ -213,7 +213,7 @@ d3.json("blog/data.json", function (data){
     };
 
     function rescale(){
-      svg.select(".yaxis")
+      svg.select(".y",".axis")
             .transition().duration(1500).ease("sin-in-out")
             .call(yAxis);
       
