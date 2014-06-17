@@ -282,7 +282,9 @@ d3.json("blog/data.json", function (data){
         n++;
       }
       //transitionStacked(); 
-      svg.call(stack); 
+      svg.selectAll(".layer")
+            .transition().duration(1500).ease("sin-in-out")
+            .call(layers);
       console.log("header "+header);
       console.log(" n "+n);
       return false; 
