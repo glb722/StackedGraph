@@ -161,7 +161,7 @@ d3.json("blog/data.json", function (data){
 
     function transitionGrouped() {
       y.domain([0, yGroupMax]);
-      y.call(yAxis);
+      //y.call(yAxis);
       rect.transition()
           .duration(500)
           .delay(function(d, i) { return i * 10; })
@@ -184,7 +184,7 @@ d3.json("blog/data.json", function (data){
 
     function transitionStacked() {
       y.domain([0, yStackMax]);
-      y.call(yAxis);
+      //y.call(yAxis);
       rect.transition()
           .duration(500)
           .delay(function(d, i) { return i * 10; })
