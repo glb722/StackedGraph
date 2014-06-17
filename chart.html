@@ -153,7 +153,7 @@ d3.json("blog/data.json", function (data){
               .text(function(d) { return d;  });
 
 
-    d3.selectAll("input").on("change", change);
+    d3.selectAll(".mode").on("change", change);
 
     var timeout = setTimeout(function() {
       d3.select(".mode").property("checked", true).each(change);
