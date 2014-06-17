@@ -236,11 +236,11 @@ d3.json("blog/data.json", function (data){
     
     function checkVals(){
       header = [];
-      
+      colorArray = [];//["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E", "#d0743c"]
       if(document.getElementById('sent').checked)
       {
         header.push("Sent");
-        
+        colorArray.push("#0000CC");
       }
       if(document.getElementById('received').checked)
       {
