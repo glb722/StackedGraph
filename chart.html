@@ -44,9 +44,9 @@ form {
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
-  var n = 6, // number of layers
+  var n = 7, // number of layers
     m = 13; // number of samples per layer
-    var headers = ["Sent","Received","Failed","Success","Other","Things"];
+    var headers = ["Sent","Received","Failed","Success","Other","Things", "Blah"];
     var colorArray = ["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E", "#d0743c"];
 
 var margin = {top: 20, right: 50, bottom: 100, left: 75},
@@ -238,40 +238,48 @@ d3.json("blog/data.json", function (data){
     function CheckVals(){
       header = [];
       colorArray = [];//["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E", "#d0743c"]
+      n=0; 
       if(document.getElementById('sent').checked)
       {
         header.push("Sent");
         colorArray.push("#0000CC");
+        n++; 
       }
       if(document.getElementById('received').checked)
       {
         header.push("Received");
         colorArray.push("#660066");
+        n++;
       }
       if(document.getElementById('failed').checked)
       {
         header.push("Failed");
         colorArray.push("#FF0000");
+        n++;
       }
       if(document.getElementById('success').checked)
       {
         header.push("Success");
         colorArray.push("#00E600");
+        n++;
       }
       if(document.getElementById('other').checked)
       {
         header.push("Other");
         colorArray.push("#FFFF66");
+        n++;
       }
       if(document.getElementById('things').checked)
       {
         header.push("Things");
         colorArray.push("#0F1F2E");
+        n++;
       }
       if(document.getElementById('blah').checked)
       {
         header.push("Blah");
         colorArray.push("#d0743c");
+        n++;
       }
       transitionStacked(); 
       return false; 
