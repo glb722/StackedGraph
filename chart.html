@@ -282,7 +282,7 @@ d3.json("blog/data.json", function (data){
         n++;
       }
       //transitionStacked(); 
-      svg.selectAll(".layer").transition(); 
+      svg.call(stack); 
       console.log("header "+header);
       console.log(" n "+n);
       return false; 
