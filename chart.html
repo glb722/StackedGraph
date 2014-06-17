@@ -161,7 +161,7 @@ d3.json("blog/data.json", function (data){
     }
 
     function transitionGrouped() {
-      console.log("transGrp");
+      //console.log("transGrp");
       y.domain([0, yGroupMax]);
       //y.call(yAxis);
       //yAxis=d3.svg.axis().scale(y).tickValues();
@@ -180,7 +180,7 @@ d3.json("blog/data.json", function (data){
         .on("mousemove", function(d) {
           var xPosition = d3.mouse(this)[0] - 15;
           var yPosition = d3.mouse(this)[1] - 25;
-          console.log("xposition "+xPosition+" yposition "+yPosition);
+          //console.log("xposition "+xPosition+" yposition "+yPosition);
 
           tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
           
@@ -218,7 +218,7 @@ d3.json("blog/data.json", function (data){
             .transition().duration(1500).ease("sin-in-out")
             .call(yAxis);
       
-      console.log("rescale");
+      //console.log("rescale");
     }
 
     var tooltip = svg.append("g")
