@@ -46,6 +46,8 @@ form {
 
   var n = 7, // number of layers
     m = 13; // number of samples per layer
+    var headers = ["Sent","Received","Failed","Success","Other","Things", "Blah"];
+    var colorArray = ["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E", "#d0743c"];
 
 var margin = {top: 20, right: 50, bottom: 100, left: 75},
     width = 740 - margin.left - margin.right,
@@ -61,7 +63,6 @@ d3.json("blog/data.json", function (data){
     
     //var jArray = JSON.parse(data);
     console.log(data[0].Category);
-    var headers = ["Sent","Received","Failed","Success","Other","Things", "Blah"];
     var stack = d3.layout.stack();
     var layers = stack(headers.map(function(dataRange) {
         return data.map(function(d) {
@@ -81,7 +82,6 @@ d3.json("blog/data.json", function (data){
         .range([height, 0]);
     //console.log("YstackMax "+yStackMax)
     //console.log("YgroupMax "+yGroupMax)
-    var colorArray = ["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E", "#d0743c"];
     var color = d3.scale.ordinal()
         .domain(headers)
         .range(colorArray);
@@ -242,32 +242,38 @@ d3.json("blog/data.json", function (data){
       {
         header.push("Sent");
         colorArray.push("#0000CC");
-        console.log(header);
       }
       if(document.getElementById('received').checked)
       {
-        
+        header.push("Received");
+        colorArray.push("#660066");
       }
       if(document.getElementById('failed').checked)
       {
-        
+        header.push("Failed");
+        colorArray.push("#FF0000");
       }
       if(document.getElementById('success').checked)
       {
-        
+        header.push("Success");
+        colorArray.push("#00E600");
       }
       if(document.getElementById('other').checked)
       {
-        
+        header.push("Other");
+        colorArray.push("#FFFF66");
       }
       if(document.getElementById('things').checked)
       {
-        
+        header.push("Things");
+        colorArray.push("#0F1F2E");
       }
       if(document.getElementById('blah').checked)
       {
-        
+        header.push("Blah");
+        colorArray.push("#d0743c");
       }
+      
       return false; 
     }
 
