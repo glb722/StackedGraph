@@ -117,11 +117,11 @@ d3.json("blog/data.json", function (data){
                 });
     
     svg.append("g")
-        .attr("class", "y axis")
+        .attr("class", "yaxis")
         .attr("transform", "translate(20,0)")
         .call(yAxis)
       .append("text")
-        .attr("class", "yaxis label")
+        .attr("class", "yaxislabel")
         .attr("transform", "rotate(-90)")
         .attr({"x": -150, "y": -70})
         .attr("dy", ".75em")
@@ -213,10 +213,10 @@ d3.json("blog/data.json", function (data){
     };
 
     function rescale(){
-      svg.select(".y axis")
+      svg.select(".yaxis")
             .transition().duration(1500).ease("sin-in-out")
             .call(yAxis);
-      svg.select(".yaxis label")
+      svg.select(".yaxislabel")
             .text("Rescaled Axis");
       console.log("rescale");
     }
