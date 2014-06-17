@@ -53,21 +53,21 @@ d3.json("blog/data.json", function (data){
     var stack = d3.layout.stack();
     var layers = stack(headers.map(function(dataRange) {
         return data.map(function(d) {
-          return {x: d.Category, y: +d[dataRange]};
+          return {x: d.Category, y: d[dataRange]};
         });
     }));
 //console.log(layers);
     var yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); });
-    var yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); });
+    var yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { console.log("d.y0"+d.y0+"d.y"+d.y); return d.y0 + d.y; }); });
     
     var xScale = d3.scale.ordinal()
         .domain(layers[0].map(function(d) { return d.x; }))
         .rangeRoundBands([25, width], .08);
 
-    var yScale = d3.scale.linear()
+    var y = d3.scale.linear()
         .domain([0, yStackMax])
         .range([height, 0]);
-    //console.log("YstackMax "+yStackMax)
+    console.log("YstackMax "+yStackMax)
     var color = d3.scale.ordinal()
         .domain(headers)
         .range(["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E"]);
@@ -80,7 +80,7 @@ d3.json("blog/data.json", function (data){
         .orient("bottom");
 
     var yAxis = d3.svg.axis()
-        .scale(yScale)
+        .scale(y)
         .orient("left")
         .tickFormat(d3.format(".2s"));
 
@@ -100,8 +100,8 @@ d3.json("blog/data.json", function (data){
 
     rect.transition()
         .delay(function(d, i) { return i * 10; })
-        .attr("y", function(d) { return yScale(d.y0 + d.y); })
-        .attr("height", function(d) { return yScale(d.y0) - y(d.y0 + d.y); });
+        .attr("y", function(d) { return y(d.y0 + d.y); })
+        .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); });
 
     //********** AXES ************
     svg.append("g")
@@ -167,8 +167,8 @@ d3.json("blog/data.json", function (data){
           .attr("x", function(d, i, j) { return xScale(d.x) + xScale.rangeBand() / n * j; })
           .attr("width", xScale.rangeBand() / n)
         .transition()
-          .attr("y", function(d) { return yScale(d.y); })
-          .attr("height", function(d) { return height - yScale(d.y); });
+          .attr("y", function(d) { return y(d.y); })
+          .attr("height", function(d) { return height - y(d.y); });
 
       rect.on("mouseover", function() { tooltip.style("display", null); })
         .on("mouseout", function() { tooltip.style("display", "none"); })
@@ -187,8 +187,8 @@ d3.json("blog/data.json", function (data){
       rect.transition()
           .duration(500)
           .delay(function(d, i) { return i * 10; })
-          .attr("y", function(d) { return yScale(d.y0 + d.y); })
-          .attr("height", function(d) { return yScale(d.y0) - yScale(d.y0 + d.y); })
+          .attr("y", function(d) { return y(d.y0 + d.y); })
+          .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); })
         .transition()
           .attr("x", function(d) { return xScale(d.x); })
           .attr("width", xScale.rangeBand());
