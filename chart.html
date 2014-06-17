@@ -216,6 +216,8 @@ d3.json("blog/data.json", function (data){
       svg.select(".y axis")
             .transition().duration(1500).ease("sin-in-out")
             .call(yAxis);
+      svg.select(".yaxis label")
+            .text("Rescaled Axis");
       console.log("rescale");
     }
 
