@@ -162,7 +162,8 @@ d3.json("blog/data.json", function (data){
     function transitionGrouped() {
       y.domain([0, yGroupMax]);
       //y.call(yAxis);
-      yAxis=d3.svg.axis().scale(y).tickValues();
+      //yAxis=d3.svg.axis().scale(y).tickValues();
+      rescale();
       rect.transition()
           .duration(500)
           .delay(function(d, i) { return i * 10; })
@@ -186,7 +187,8 @@ d3.json("blog/data.json", function (data){
     function transitionStacked() {
       y.domain([0, yStackMax]);
       //y.call(yAxis);
-      yAxis=d3.svg.axis().scale(y).tickValues();
+      //yAxis=d3.svg.axis().scale(y).tickValues();
+      rescale();
       rect.transition()
           .duration(500)
           .delay(function(d, i) { return i * 10; })
@@ -206,6 +208,10 @@ d3.json("blog/data.json", function (data){
           tooltip.select("text").text("hello world");
         });
     };
+
+    function rescale(){
+      svg.select("y axis").transition().duration(1500).ease("sin-in-out").call(yAxis);
+    }
 
     var tooltip = svg.append("g")
         .attr("class", "tooltip");
