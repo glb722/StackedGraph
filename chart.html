@@ -65,10 +65,10 @@ d3.json("blog/data.json", function (data){
         .rangeRoundBands([25, width], .08);
 
     var y = d3.scale.linear()
-        .domain([0, yGroupMax])
+        .domain([0, yStackMax])
         .range([height, 0]);
-    console.log("YstackMax "+yStackMax)
-    console.log("YgroupMax "+yGroupMax)
+    //console.log("YstackMax "+yStackMax)
+    //console.log("YgroupMax "+yGroupMax)
     var color = d3.scale.ordinal()
         .domain(headers)
         .range(["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E"]);
@@ -161,7 +161,7 @@ d3.json("blog/data.json", function (data){
 
     function transitionGrouped() {
       y.domain([0, yGroupMax]);
-
+      call(yAxis);
       rect.transition()
           .duration(500)
           .delay(function(d, i) { return i * 10; })
@@ -184,7 +184,7 @@ d3.json("blog/data.json", function (data){
 
     function transitionStacked() {
       y.domain([0, yStackMax]);
-
+      call(yAxis);
       rect.transition()
           .duration(500)
           .delay(function(d, i) { return i * 10; })
