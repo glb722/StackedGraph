@@ -177,7 +177,7 @@ console.log(layers);
           var yPosition = d3.mouse(this)[1] - 25;
           tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
           
-          tooltip.select("text").text(yPosition);
+          tooltip.select("text").text(y);
         });
     };
 
