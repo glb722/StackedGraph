@@ -67,7 +67,7 @@ console.log(layers);
     var y = d3.scale.linear()
         .domain([0, yStackMax])
         .range([height, 0]);
-
+    console.log("YstackMax"+yStackMax)
     var color = d3.scale.ordinal()
         .domain(headers)
         .range(["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E"]);
