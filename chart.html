@@ -162,7 +162,7 @@ d3.json("blog/data.json", function (data){
 
 
     d3.selectAll("input[name=\"mode\"]").on("change", change);
-    d3.selectAll("input[name=\"filter\"]").onclick = CheckVals(); 
+    d3.selectAll("input[name=\"filter\"]").onclick = CheckVals; 
     
     var timeout = setTimeout(function() {
       d3.select("input[value=\"grouped\"]").property("checked", true).each(change);
