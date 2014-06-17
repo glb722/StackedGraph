@@ -156,7 +156,7 @@ d3.json("blog/data.json", function (data){
     d3.selectAll(".mode").on("change", change);
 
     var timeout = setTimeout(function() {
-      d3.select(".mode").property("checked", true).each(change);
+      d3.select("input[value=\"grouped\"]").property("checked", true).each(change);
     }, 2000);
 
     function change() {
