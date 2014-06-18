@@ -294,11 +294,11 @@ d3.json("blog/data.json", function (data){
             .call(layer);*/
       var sel = svg.selectAll("rect").data(function(d) { return d; });
       sel.exit().remove();
-      sel.enter().append("rect")
-        .attr("x", function(d) { return xScale(d.x); })
+      sel.enter().append("rect").call(rect);
+        /*.attr("x", function(d) { return xScale(d.x); })
         .attr("y", height)
         .attr("width", xScale.rangeBand())
-        .attr("height", 0);
+        .attr("height", 0);*/
         
       console.log("header "+header);
       console.log(" n "+n);
