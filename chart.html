@@ -292,9 +292,9 @@ d3.json("blog/data.json", function (data){
       /*svg.selectAll(".layer")
             .transition().duration(1500).ease("sin-in-out")
             .call(layer);*/
-      var sel = svg.selectAll("rect").data(function(d) { return d; });
+      var sel = svg.selectAll(".layer").data(function(d) { return d; });
       sel.exit().remove();
-      sel.enter().append("rect").call(rect);
+      sel.enter().append(".layer").call(layer);
         /*.attr("x", function(d) { return xScale(d.x); })
         .attr("y", height)
         .attr("width", xScale.rangeBand())
