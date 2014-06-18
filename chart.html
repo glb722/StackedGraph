@@ -289,9 +289,16 @@ d3.json("blog/data.json", function (data){
         .delay(function(d, i) { return i * 10; })
         .attr("y", function(d) { return y(d.y0 + d.y); })
         .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); });*/
-      svg.selectAll(".layer")
+      /*svg.selectAll(".layer")
             .transition().duration(1500).ease("sin-in-out")
-            .call(layer);
+            .call(layer);*/
+      var sel = svg.selectAll("rect").data(data);
+      sel.exit().remove();
+      sel.enter().append("rect")
+      .attr("x", function(d) { return xScale(d.x); })
+        .attr("y", height)
+        .attr("width", xScale.rangeBand())
+        .attr("height", 0);
       console.log("header "+header);
       console.log(" n "+n);
       return false; 
