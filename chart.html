@@ -288,7 +288,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             .transition().duration(1500).ease("sin-in-out")
             .call(layer);*/
       var sel = svg.selectAll(".layer").data(data);
-      var rectangles = sel.selectAll(".rect"); 
+      var rectangles = sel.selectAll(".rect").data(data); 
       console.log("rectangles "+rectangles);
       rectangles.exit().remove();
       /*sel.enter().append(".layer").call(layer);*/
