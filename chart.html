@@ -180,7 +180,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
       rect.transition()
           .duration(500)
           .delay(function(d, i) { return i * 10; })
-          .attr("x", function(d, i, j) { return xScale.rangeBand() / n * j; })
+          .attr("x", function(d, i, j) { return xScale(d.x) + xScale.rangeBand() / n ; })
           .attr("width", xScale.rangeBand() / n)
         .transition()
           .attr("y", function(d) { return y(d.y); })
