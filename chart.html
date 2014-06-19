@@ -46,8 +46,8 @@ form {
 
   var n = 7, // number of layers
     m = 13; // number of samples per layer
-    var headers = ["Sent","Received","Failed","Success","Other","Things", "Blah"];
-    var colorArray = ["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E", "#d0743c"];
+    var headers = ["Sent","Received","Failed","Success","Other","Things", "Blah"];//headers for types of data
+    var colorArray = ["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E", "#d0743c"];//color selections
 
 var margin = {top: 20, right: 50, bottom: 100, left: 75},
     width = 740 - margin.left - margin.right,
@@ -59,17 +59,14 @@ var svg = d3.select("body").append("svg")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.json("blog/data.json", function (data){
-    console.log("JSON Data "+data);
-    //var jArray = JSON.parse(data);
-    console.log(data[0].Category);
+d3.json("blog/data.json", function (data){ //gets data from the JSON file data.json
     var stack = d3.layout.stack();
     var layers = stack(headers.map(function(dataRange) {
         return data.map(function(d) {
           return {x: d.Category, y: d[dataRange]};
         });
     }));
-//console.log(layers);
+
     var yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); });
     var yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); });
     
@@ -80,13 +77,11 @@ d3.json("blog/data.json", function (data){
     var y = d3.scale.linear()
         .domain([0, yStackMax])
         .range([height, 0]);
-    //console.log("YstackMax "+yStackMax)
-    //console.log("YgroupMax "+yGroupMax)
+
     var color = d3.scale.ordinal()
         .domain(headers)
         .range(colorArray);
-      //"#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E"
-      //"#d0743c", "#8a89a6", "#6b486b", "#7b6888", "#a05d56", "#BB6836"]
+
     var xAxis = d3.svg.axis()
         .scale(xScale)
         .tickSize(0)
@@ -293,8 +288,9 @@ d3.json("blog/data.json", function (data){
             .transition().duration(1500).ease("sin-in-out")
             .call(layer);*/
       var sel = svg.selectAll(".layer").data(data);
-      console.log("sel "+sel);
-      sel.exit().remove();
+      var rectangles = sel.selectAll(".rect"); 
+      console.log("rectangles "+rectangles);
+      rectangles.exit().remove();
       /*sel.enter().append(".layer").call(layer);*/
       
       /*rect.transition()
