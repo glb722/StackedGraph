@@ -60,7 +60,7 @@ var svg = d3.select("body").append("svg")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 d3.json("blog/data.json", function (data){
-    
+    console.log("JSON Data "+data);
     //var jArray = JSON.parse(data);
     console.log(data[0].Category);
     var stack = d3.layout.stack();
@@ -292,7 +292,7 @@ d3.json("blog/data.json", function (data){
       /*svg.selectAll(".layer")
             .transition().duration(1500).ease("sin-in-out")
             .call(layer);*/
-      var sel = svg.select(".layer");
+      var sel = svg.selectAll(".layer").data(data);
       console.log("sel "+sel);
       sel.exit().transition().duration(1500).ease("sin-in-out").remove();
       /*sel.enter().append(".layer").call(layer);*/
