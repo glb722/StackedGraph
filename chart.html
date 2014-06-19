@@ -233,57 +233,106 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
     }
     
     function CheckVals(){
-      for(var i = 0; i < 7; i++)
+      /*for(var i = 0; i < 7; i++)
       {
         var sel = document.getElementById(headers[i]+"Layer");
         console.log("layers "+layer);
         sel.remove(); 
         
-      }
-      headers = [];
-      colorArray = [];//["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E", "#d0743c"]
-      n=0; 
-      if(document.getElementById('sentCheckBox').checked)
+      }*/
+      //headers = [];
+      //colorArray = [];//["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E", "#d0743c"]
+      //n=0; 
+      if(!document.getElementById('sentCheckBox').checked)
       {
-        headers.push("Sent");
-        colorArray.push("#0000CC");
-        n++; 
+        for(var i = 0; i < headers.length; i++)
+        {
+          if(headers[i]=="Sent")
+          {
+            headers.splice(i,1);
+            colorArray.splice(i,1);
+          }
+        }
+        var sel = document.getElementById("SentLayer");
+        n--; 
       }
-      if(document.getElementById('receivedCheckBox').checked)
+      if(!document.getElementById('receivedCheckBox').checked)
       {
-        headers.push("Received");
-        colorArray.push("#660066");
-        n++;
+        for(var i = 0; i < headers.length; i++)
+        {
+          if(headers[i]=="Received")
+          {
+            headers.splice(i,1);
+            colorArray.splice(i,1);
+          }
+        }
+        var sel = document.getElementById("ReceivedLayer");
+        n--; 
       }
-      if(document.getElementById('failedCheckBox').checked)
+      if(!document.getElementById('failedCheckBox').checked)
       {
-        headers.push("Failed");
-        colorArray.push("#FF0000");
-        n++;
+        for(var i = 0; i < headers.length; i++)
+        {
+          if(headers[i]=="Failed")
+          {
+            headers.splice(i,1);
+            colorArray.splice(i,1);
+          }
+        }
+        var sel = document.getElementById("FailedLayer");
+        n--; 
       }
-      if(document.getElementById('successCheckBox').checked)
+      if(!document.getElementById('successCheckBox').checked)
       {
-        headers.push("Success");
-        colorArray.push("#00E600");
-        n++;
+        for(var i = 0; i < headers.length; i++)
+        {
+          if(headers[i]=="Success")
+          {
+            headers.splice(i,1);
+            colorArray.splice(i,1);
+          }
+        }
+        var sel = document.getElementById("SuccessLayer");
+        n--; 
       }
-      if(document.getElementById('otherCheckBox').checked)
+      if(!document.getElementById('otherCheckBox').checked)
       {
-        headers.push("Other");
-        colorArray.push("#FFFF66");
-        n++;
+        for(var i = 0; i < headers.length; i++)
+        {
+          if(headers[i]=="Other")
+          {
+            headers.splice(i,1);
+            colorArray.splice(i,1);
+          }
+        }
+        var sel = document.getElementById("OtherLayer");
+        n--; 
       }
-      if(document.getElementById('thingsCheckBox').checked)
+      if(!document.getElementById('thingsCheckBox').checked)
       {
-        headers.push("Things");
-        colorArray.push("#0F1F2E");
-        n++;
+        for(var i = 0; i < headers.length; i++)
+        {
+          if(headers[i]=="Things")
+          {
+            headers.splice(i,1);
+            colorArray.splice(i,1);
+          }
+        }
+        var sel = document.getElementById("ThingsLayer");
+        n--; 
       }
-      if(document.getElementById('blahCheckBox').checked)
+      if(!document.getElementById('blahCheckBox').checked)
       {
-        headers.push("Blah");
-        colorArray.push("#d0743c");
-        n++;
+        for(var i = 0; i < headers.length; i++)
+        {
+          if(headers[i]=="Blah")
+          {
+            headers.splice(i,1);
+            colorArray.splice(i,1);
+          }
+        }
+        var sel = document.getElementById("BlahLayer");
+        n--; 
       }
       transitionGrouped(); 
       d3.select("input[value=\"grouped\"]").property("checked", true).each(change);
