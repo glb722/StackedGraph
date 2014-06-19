@@ -97,7 +97,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         .data(layers)
         .enter().append("g")
         .attr("class", "layer")
-        .attr("id", headers[i])
+        .attr("id", headers)
         .style("fill", function(d, i) { return color(i); });
 
     var rect = layer.selectAll("rect")
