@@ -254,6 +254,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           }
         }
         var sel = document.getElementById("SentLayer");
+        sel.remove(); 
         n--; 
       }
       if(!document.getElementById('receivedCheckBox').checked)
@@ -267,6 +268,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           }
         }
         var sel = document.getElementById("ReceivedLayer");
+        sel.remove(); 
         n--; 
       }
       if(!document.getElementById('failedCheckBox').checked)
@@ -280,6 +282,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           }
         }
         var sel = document.getElementById("FailedLayer");
+        sel.remove(); 
         n--; 
       }
       if(!document.getElementById('successCheckBox').checked)
@@ -293,6 +296,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           }
         }
         var sel = document.getElementById("SuccessLayer");
+        sel.remove(); 
         n--; 
       }
       if(!document.getElementById('otherCheckBox').checked)
@@ -306,6 +310,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           }
         }
         var sel = document.getElementById("OtherLayer");
+        sel.remove(); 
         n--; 
       }
       if(!document.getElementById('thingsCheckBox').checked)
@@ -319,6 +324,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           }
         }
         var sel = document.getElementById("ThingsLayer");
+        sel.remove(); 
         n--; 
       }
       if(!document.getElementById('blahCheckBox').checked)
@@ -332,6 +338,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           }
         }
         var sel = document.getElementById("BlahLayer");
+        sel.remove(); 
         n--; 
       }
       transitionGrouped(); 
@@ -361,7 +368,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         .attr("width", xScale.rangeBand())
         .attr("height", 0);*/
         
-      console.log("header "+header);
+      //console.log("header "+header);
       console.log(" n "+n);
       return false; 
     }
