@@ -294,7 +294,7 @@ d3.json("blog/data.json", function (data){
             .call(layer);*/
       var sel = svg.selectAll(".layer").data(data);
       console.log("sel "+sel);
-      sel.exit().transition().duration(1500).ease("sin-in-out").remove();
+      sel.exit().remove();
       /*sel.enter().append(".layer").call(layer);*/
       
       /*rect.transition()
