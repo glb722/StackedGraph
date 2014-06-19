@@ -185,7 +185,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         .transition()
           .attr("y", function(d) { return y(d.y); })
           .attr("height", function(d) { return height - y(d.y); });
-
+      
       rect.on("mouseover", function() { tooltip.style("display", null); })
         .on("mouseout", function() { tooltip.style("display", "none"); })
         .on("mousemove", function(d) {
@@ -341,7 +341,8 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         sel.remove(); 
         n--; 
       }
-      var updateXY = svg.select("layer").call(xScale);
+      
+      var updateXY = svg.call(xScale);
       transitionGrouped(); 
       d3.select("input[value=\"grouped\"]").property("checked", true).each(change);
       //var yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); });
