@@ -283,8 +283,8 @@ d3.json("blog/data.json", function (data){
         n++;
       }
       //transitionStacked(); 
-      var yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); });
-    var yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); });
+      //var yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); });
+    //var yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); });
     /*svg.selectAll(".rect").transition()
         .delay(function(d, i) { return i * 10; })
         .attr("y", function(d) { return y(d.y0 + d.y); })
