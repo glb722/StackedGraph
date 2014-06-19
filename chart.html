@@ -287,10 +287,16 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
       /*svg.selectAll(".layer")
             .transition().duration(1500).ease("sin-in-out")
             .call(layer);*/
-      var sel = svg.selectAll(".layer").data(data);
-      var rectangles = sel.selectAll(".rect").data(data); 
-      console.log("rectangles "+rectangles);
-      rectangles.exit().remove();
+      for(var i = 0; i < 7; i++)
+      {
+        var sel = svg.select(".layer").data(data[i]);
+        for(var j=0; j<13; j++)
+        {
+          var rectangle = sel.select(".rect").data(data[i]); 
+          console.log("rectangles "+rectangle);
+          rectangles.exit().remove();
+        }
+      }
       /*sel.enter().append(".layer").call(layer);*/
       
       /*rect.transition()
