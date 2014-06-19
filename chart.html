@@ -103,7 +103,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
     var rect = layer.selectAll("rect")
         .data(function(d) { return d; })
         .enter().append("rect")
-        .attr("id", function(i,d){return rect.parent+"Rect";})
+        .attr("id", "Rect")
         .attr("x", function(d) { return xScale(d.x); })
         .attr("y", height)
         .attr("width", xScale.rangeBand())
