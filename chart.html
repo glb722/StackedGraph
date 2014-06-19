@@ -97,7 +97,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         .data(layers)
         .enter().append("g")
         .attr("class", "layer")
-        .attr("id", function(d,i){return headers[i];})
+        .attr("id", function(d,i){return headers[i]+"Layer";})
         .style("fill", function(d, i) { return color(i); });
 
     var rect = layer.selectAll("rect")
@@ -290,7 +290,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             .call(layer);*/
       for(var i = 0; i < 7; i++)
       {
-        var sel = document.getElementById("Sent");
+        var sel = document.getElementById("SentLayer");
         console.log("layers "+layer);
         sel.remove(); 
         for(var j=0; j<13; j++)
