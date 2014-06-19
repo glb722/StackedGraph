@@ -296,14 +296,14 @@ d3.json("blog/data.json", function (data){
       sel.exit().remove();
       /*sel.enter().append(".layer").call(layer);*/
       
-      rect.transition()
+      /*rect.transition()
           .duration(500)
           .delay(function(d, i) { return i * 10; })
           .attr("x", function(d, i, j) { return xScale(d.x) + xScale.rangeBand() / n * j; })
           .attr("width", xScale.rangeBand() / n)
         .transition()
           .attr("y", function(d) { return y(d.y); })
-          .attr("height", function(d) { return height - y(d.y); });
+          .attr("height", function(d) { return height - y(d.y); });*/
         /*.attr("x", function(d) { return xScale(d.x); })
         .attr("y", height)
         .attr("width", xScale.rangeBand())
