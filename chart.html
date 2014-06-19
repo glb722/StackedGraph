@@ -52,7 +52,8 @@ form {
 var margin = {top: 20, right: 50, bottom: 100, left: 75},
     width = 740 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
-
+    build(); 
+function build(){
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -160,11 +161,11 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
 
     d3.selectAll("input[name=\"mode\"]").on("change", change);
     document.getElementById("filter").onclick = CheckVals; 
-    
+   
     var timeout = setTimeout(function() {
       d3.select("input[value=\"grouped\"]").property("checked", true).each(change);
     }, 2000);
-
+}
     function change() {
       clearTimeout(timeout);
       if (this.value === "grouped") transitionGrouped();
