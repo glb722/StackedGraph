@@ -341,6 +341,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         sel.remove(); 
         n--; 
       }
+      var updateXY = svg.select("layer").call(xScale);
       transitionGrouped(); 
       d3.select("input[value=\"grouped\"]").property("checked", true).each(change);
       //var yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); });
