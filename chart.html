@@ -292,7 +292,7 @@ d3.json("blog/data.json", function (data){
       /*svg.selectAll(".layer")
             .transition().duration(1500).ease("sin-in-out")
             .call(layer);*/
-      var sel = svg.selectAll(".layer");
+      var sel = svg.select(".layer");
       console.log("sel "+sel);
       sel.exit().transition().duration(1500).ease("sin-in-out").remove();
       /*sel.enter().append(".layer").call(layer);*/
