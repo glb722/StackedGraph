@@ -233,52 +233,60 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
     }
     
     function CheckVals(){
-      header = [];
+      for(var i = 0; i < 7; i++)
+      {
+        var sel = document.getElementById(headers[i]+"Layer");
+        console.log("layers "+layer);
+        sel.remove(); 
+        
+      }
+      headers = [];
       colorArray = [];//["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E", "#d0743c"]
       n=0; 
       if(document.getElementById('sentCheckBox').checked)
       {
-        header.push("Sent");
+        headers.push("Sent");
         colorArray.push("#0000CC");
         n++; 
       }
       if(document.getElementById('receivedCheckBox').checked)
       {
-        header.push("Received");
+        headers.push("Received");
         colorArray.push("#660066");
         n++;
       }
       if(document.getElementById('failedCheckBox').checked)
       {
-        header.push("Failed");
+        headers.push("Failed");
         colorArray.push("#FF0000");
         n++;
       }
       if(document.getElementById('successCheckBox').checked)
       {
-        header.push("Success");
+        headers.push("Success");
         colorArray.push("#00E600");
         n++;
       }
       if(document.getElementById('otherCheckBox').checked)
       {
-        header.push("Other");
+        headers.push("Other");
         colorArray.push("#FFFF66");
         n++;
       }
       if(document.getElementById('thingsCheckBox').checked)
       {
-        header.push("Things");
+        headers.push("Things");
         colorArray.push("#0F1F2E");
         n++;
       }
       if(document.getElementById('blahCheckBox').checked)
       {
-        header.push("Blah");
+        headers.push("Blah");
         colorArray.push("#d0743c");
         n++;
       }
-      //transitionStacked(); 
+      transitionGrouped(); 
+      d3.select("input[value=\"grouped\"]").property("checked", true).each(change);
       //var yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); });
     //var yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); });
     /*svg.selectAll(".rect").transition()
@@ -288,13 +296,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
       /*svg.selectAll(".layer")
             .transition().duration(1500).ease("sin-in-out")
             .call(layer);*/
-      for(var i = 0; i < 7; i++)
-      {
-        var sel = document.getElementById(headers[i]+"Layer");
-        console.log("layers "+layer);
-        sel.remove(); 
-        
-      }
+      
       /*sel.enter().append(".layer").call(layer);*/
       
       /*rect.transition()
