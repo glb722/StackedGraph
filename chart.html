@@ -296,7 +296,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         {
           var rectangle = sel.select(".rect").data(data[i]); 
           console.log("rectangles "+rectangle);
-          rectangle.exit().remove();
+          rectangle.remove();
         }
       }
       /*sel.enter().append(".layer").call(layer);*/
