@@ -46,7 +46,7 @@ form {
 
   var n = 7, // number of layers
     m = 13; // number of samples per layer
-    var headers = ["Sent","Received","Failed","Success","Other","Things", "Blah"];//headers for types of data
+    //headers for types of data
     var colorArray = ["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E", "#d0743c"];//color selections
 
 var margin = {top: 20, right: 50, bottom: 100, left: 75},
@@ -60,6 +60,8 @@ var svg = d3.select("body").append("svg")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 d3.json("blog/data.json", function (data){ //gets data from the JSON file data.json
+    console.log("data[0]"+data[0]);
+    var headers = ["Sent","Received","Failed","Success","Other","Things", "Blah"];
     var stack = d3.layout.stack();
     var layers = stack(headers.map(function(dataRange) {
         return data.map(function(d) {
