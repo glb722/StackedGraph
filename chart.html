@@ -258,6 +258,22 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         sel.style.display = "none"; 
         n--; 
       }
+      else
+      {
+        for(var i = 0; i < headers.length; i++)
+        {
+          if(headers[i]=="Sent")
+          {
+            break; 
+          }
+        }
+        headers.add("Sent");
+        colorArray.add("#0000CC");
+        var sel = document.getElementById("SentLayer");
+        sel.style.display = "show"; 
+        n++;
+      }
+      
       if(!document.getElementById('receivedCheckBox').checked)
       {
         for(var i = 0; i < headers.length; i++)
@@ -272,6 +288,22 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         sel.style.display = "none"; 
         n--; 
       }
+      else
+      {
+        for(var i = 0; i < headers.length; i++)
+        {
+          if(headers[i]=="Received")
+          {
+            break; 
+          }
+        }
+        headers.add("Received");
+        colorArray.add("#660066");
+        var sel = document.getElementById("ReceivedLayer");
+        sel.style.display = "show"; 
+        n++;
+      }
+      
       if(!document.getElementById('failedCheckBox').checked)
       {
         for(var i = 0; i < headers.length; i++)
@@ -286,6 +318,22 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         sel.style.display = "none"; 
         n--; 
       }
+      else
+      {
+        for(var i = 0; i < headers.length; i++)
+        {
+          if(headers[i]=="Failed")
+          {
+            break; 
+          }
+        }
+        headers.add("Failed");
+        colorArray.add("#FF0000");
+        var sel = document.getElementById("FailedLayer");
+        sel.style.display = "show"; 
+        n++;
+      }
+      
       if(!document.getElementById('successCheckBox').checked)
       {
         for(var i = 0; i < headers.length; i++)
@@ -300,6 +348,22 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         sel.style.display = "none"; 
         n--; 
       }
+      else
+      {
+        for(var i = 0; i < headers.length; i++)
+        {
+          if(headers[i]=="Success")
+          {
+            break; 
+          }
+        }
+        headers.add("Success");
+        colorArray.add("#00E600");
+        var sel = document.getElementById("SuccessLayer");
+        sel.style.display = "show"; 
+        n++;
+      }
+      
       if(!document.getElementById('otherCheckBox').checked)
       {
         for(var i = 0; i < headers.length; i++)
@@ -314,6 +378,22 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         sel.style.display = "none"; 
         n--; 
       }
+      else
+      {
+        for(var i = 0; i < headers.length; i++)
+        {
+          if(headers[i]=="Other")
+          {
+            break; 
+          }
+        }
+        headers.add("Other");
+        colorArray.add("#FFFF66");
+        var sel = document.getElementById("OtherLayer");
+        sel.style.display = "show"; 
+        n++;
+      }
+      
       if(!document.getElementById('thingsCheckBox').checked)
       {
         for(var i = 0; i < headers.length; i++)
@@ -328,10 +408,27 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         sel.style.display = "none"; 
         n--; 
       }
+      else
+      {
+        for(var i = 0; i < headers.length; i++)
+        {
+          if(headers[i]=="Things")
+          {
+            break; 
+          }
+        }
+        headers.add("Things");
+        colorArray.add("#0F1F2E");
+        var sel = document.getElementById("ThingsLayer");
+        sel.style.display = "show"; 
+        n++;
+      }
+      
       
       
       var updateXY = svg.call(xScale);
-      updateXY.transitionGrouped(); 
+      
+      transitionGrouped(); 
       d3.select("input[value=\"grouped\"]").property("checked", true).each(change);
       //var yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); });
     //var yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); });
