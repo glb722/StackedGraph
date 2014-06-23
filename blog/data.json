@@ -1,6 +1,6 @@
 [
   {
-    "Category":"",
+    "Category":"New",
     {
       "Date":"1/1/14",
       "Sent":1234,
@@ -142,6 +142,6 @@
       "Other":0,
       "Things":0,
       "Blah":123
-    },
+    }
   }
 ]
