@@ -31,13 +31,26 @@ form {
   <label><input type="radio" name="mode" value="grouped" > Grouped</label>
   <label><input type="radio" name="mode" value="stacked" > Stacked</input></label>
 </form>
-<form style="top: 50px">
-   <input type="checkbox" id="sentCheckBox" value="sent">Sent</input><br>
-   <input type="checkbox" id="receivedCheckBox" value="received">Received</input><br>
-   <input type="checkbox" id="failedCheckBox" value="failed">Failed</input><br>
-   <input type="checkbox" id="successCheckBox" value="success">Success</input><br>
-   <input type="checkbox" id="otherCheckBox" value="other">Other</input><br>
-   <input type="checkbox" id="thingsCheckBox" value="things">Things</input><br>
+<form id="checkBoxes" style="top: 50px">
+  <script>
+  for(var w=0; w < headersFullCopy.length; w++)
+  {
+    var label= document.createElement("label");
+    var description = document.createTextNode(pair);
+    var checkbox = document.createElement("input");
+
+    checkbox.type = "checkbox";    // make the element a checkbox
+    checkbox.name = headersFullCopy[w];      // give it a name we can check on the server side
+    checkbox.value = pair;         // make its value "pair"
+
+    label.appendChild(checkbox);   // add the box to the element
+    label.appendChild(description);// add the description to the element
+
+    // add the label element to your div
+    document.getElementById('checkBoxes').appendChild(label);
+   //<input type="checkbox" id="SentCheckBox" value="Sent">Sent</input><br>
+  }
+    </script>
    <input type="button" id="filter" value="Filter"></a>
 </form>
 <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -253,7 +266,6 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
       //headers = [];
       //colorArray = [];//["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E", "#d0743c"]
       //n=0; 
-      console.log("headersFullCopyLength "+headersFullCopy.length);
       for(var b = 0; b < headersFullCopy.length; b++)
       {
         if(!document.getElementById(headersFullCopy[b]+'CheckBox').checked)
