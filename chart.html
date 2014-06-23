@@ -328,23 +328,10 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         sel.style.display = "none"; 
         n--; 
       }
-      if(!document.getElementById('blahCheckBox').checked)
-      {
-        for(var i = 0; i < headers.length; i++)
-        {
-          if(headers[i]=="Blah")
-          {
-            headers.splice(i,1);
-            colorArray.splice(i,1);
-          }
-        }
-        var sel = document.getElementById("BlahLayer");
-        sel.style.display = "none"; 
-        n--; 
-      }
+      
       
       var updateXY = svg.call(xScale);
-      transitionGrouped(); 
+      updateXY.transitionGrouped(); 
       d3.select("input[value=\"grouped\"]").property("checked", true).each(change);
       //var yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); });
     //var yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); });
