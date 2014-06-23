@@ -38,7 +38,6 @@ form {
    <input type="checkbox" id="successCheckBox" value="success">Success</input><br>
    <input type="checkbox" id="otherCheckBox" value="other">Other</input><br>
    <input type="checkbox" id="thingsCheckBox" value="things">Things</input><br>
-   <input type="checkbox" id="blahCheckBox" value="blah">Blah</input><br>
    <input type="button" id="filter" value="Filter"></a>
 </form>
 <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -256,7 +255,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           }
         }
         var sel = document.getElementById("SentLayer");
-        sel.remove(); 
+        sel.style.display = "none"; 
         n--; 
       }
       if(!document.getElementById('receivedCheckBox').checked)
@@ -270,7 +269,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           }
         }
         var sel = document.getElementById("ReceivedLayer");
-        sel.remove(); 
+        sel.style.display = "none"; 
         n--; 
       }
       if(!document.getElementById('failedCheckBox').checked)
@@ -284,7 +283,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           }
         }
         var sel = document.getElementById("FailedLayer");
-        sel.remove(); 
+        sel.style.display = "none"; 
         n--; 
       }
       if(!document.getElementById('successCheckBox').checked)
@@ -298,7 +297,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           }
         }
         var sel = document.getElementById("SuccessLayer");
-        sel.remove(); 
+        sel.style.display = "none"; 
         n--; 
       }
       if(!document.getElementById('otherCheckBox').checked)
@@ -312,7 +311,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           }
         }
         var sel = document.getElementById("OtherLayer");
-        sel.remove(); 
+        sel.style.display = "none"; 
         n--; 
       }
       if(!document.getElementById('thingsCheckBox').checked)
@@ -326,7 +325,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           }
         }
         var sel = document.getElementById("ThingsLayer");
-        sel.remove(); 
+        sel.style.display = "none"; 
         n--; 
       }
       if(!document.getElementById('blahCheckBox').checked)
@@ -340,7 +339,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           }
         }
         var sel = document.getElementById("BlahLayer");
-        sel.remove(); 
+        sel.style.display = "none"; 
         n--; 
       }
       
