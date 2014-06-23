@@ -198,7 +198,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
       rect.transition()
           .duration(500)
           .delay(function(d, i) { return i * 10; })
-          .attr("x", function(d, i, j) { return xScale(d.x) + xScale.rangeBand() / n* j ; })
+          .attr("x", function(d, i, j) { return xScale(d.x) + xScale.rangeBand() / n ; })
           .attr("width", xScale.rangeBand() / n)
         .transition()
           .attr("y", function(d) { return y(d.y); })
@@ -220,14 +220,12 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
     function transitionStacked() {
       console.log("transStk");
       y.domain([0, yStackMax]);
-      //y.call(yAxis);
-      //yAxis=d3.svg.axis().scale(y).tickValues();
       rescale();
       rect.transition()
           .duration(500)
           .delay(function(d, i) { return i * 10; })
           .attr("y", function(d) { return y(d.y0 + d.y); })
-          .attr("height", function(d) { console.log("finding height: "+function(d) { return y(d.y0) - y(d.y0 + d.y)}); return y(d.y0) - y(d.y0 + d.y);})
+          .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y);})
         .transition()
           .attr("x", function(d) { return xScale(d.x); })
           .attr("width", xScale.rangeBand());
@@ -247,11 +245,9 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             .transition().duration(1500).ease("sin-in-out")
             .call(yAxis);
       
-      //console.log("rescale");
     }
     
     function CheckVals(){
-     //n=headers.length;
       for(var i = 0; i < headers.length; i++)
       {
         var sel = document.getElementById(headers[i]+"Layer");
@@ -274,11 +270,9 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             {
               headers.splice(k,1);
               colorArray.splice(k,1);
-              //console.log("Layer name: "+headersFullCopy[b]+'Layer');
               var sel = document.getElementById(headersFullCopy[b]+'Layer');
               sel.style.display = "none"; 
               n--; 
-              //console.log("Got rid of "+headersFullCopy[b]);
             }
           }
           
@@ -289,8 +283,6 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           {
               headers.push(headersFullCopy[b]);
               colorArray.push(colorArrayCopy[b]);
-              //var sel = document.getElementById("SentLayer");
-              //sel.style.display = "block"; 
               n++;
           }
           else
@@ -305,8 +297,6 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
               {
                 headers.push(headersFullCopy[b]);
                 colorArray.push(colorArrayCopy[b]);
-                //var sel = document.getElementById("SentLayer");
-                //sel.style.display = "block"; 
                 n++;
               }
             }
@@ -314,16 +304,11 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         }
       }
       
-      //console.log("headersLength "+headers.length);
       for(var i = 0; i < headers.length; i++)
       {
-        //console.log("i "+i);
-        //onsole.log("headers "+headers[i]);
         var sel = document.getElementById(headers[i]+"Layer");
-        //console.log("layers "+layer);
         sel.style.display = "block"; 
         var sel2 = sel.getElementsByTagName("rect");
-        //console.log("sel2length "+sel2.length);
         for(var j = 0; j < sel2.length; j++)
         {
            sel2[j].style.display = "block";
@@ -331,37 +316,12 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         
       }
       
-      var updateXY = svg.call(xScale);
+      //var updateXY = svg.call(xScale);
       
       transitionGrouped(); 
       d3.select("input[value=\"grouped\"]").property("checked", true).each(change);
-      //var yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); });
-    //var yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); });
-    /*svg.selectAll(".rect").transition()
-        .delay(function(d, i) { return i * 10; })
-        .attr("y", function(d) { return y(d.y0 + d.y); })
-        .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); });*/
-      /*svg.selectAll(".layer")
-            .transition().duration(1500).ease("sin-in-out")
-            .call(layer);*/
+     
       
-      /*sel.enter().append(".layer").call(layer);*/
-      
-      /*rect.transition()
-          .duration(500)
-          .delay(function(d, i) { return i * 10; })
-          .attr("x", function(d, i, j) { return xScale(d.x) + xScale.rangeBand() / n * j; })
-          .attr("width", xScale.rangeBand() / n)
-        .transition()
-          .attr("y", function(d) { return y(d.y); })
-          .attr("height", function(d) { return height - y(d.y); });*/
-        /*.attr("x", function(d) { return xScale(d.x); })
-        .attr("y", height)
-        .attr("width", xScale.rangeBand())
-        .attr("height", 0);*/
-        
-      //console.log("header "+header);
-      console.log(" n "+n);
       return false; 
     }
 
