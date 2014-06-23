@@ -267,8 +267,8 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             break; 
           }
         }
-        headers.add("Sent");
-        colorArray.add("#0000CC");
+        headers.push("Sent");
+        colorArray.push("#0000CC");
         var sel = document.getElementById("SentLayer");
         sel.style.display = "show"; 
         n++;
@@ -297,8 +297,8 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             break; 
           }
         }
-        headers.add("Received");
-        colorArray.add("#660066");
+        headers.push("Received");
+        colorArray.push("#660066");
         var sel = document.getElementById("ReceivedLayer");
         sel.style.display = "show"; 
         n++;
@@ -327,8 +327,8 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             break; 
           }
         }
-        headers.add("Failed");
-        colorArray.add("#FF0000");
+        headers.push("Failed");
+        colorArray.push("#FF0000");
         var sel = document.getElementById("FailedLayer");
         sel.style.display = "show"; 
         n++;
@@ -357,8 +357,8 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             break; 
           }
         }
-        headers.add("Success");
-        colorArray.add("#00E600");
+        headers.push("Success");
+        colorArray.push("#00E600");
         var sel = document.getElementById("SuccessLayer");
         sel.style.display = "show"; 
         n++;
@@ -387,8 +387,8 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             break; 
           }
         }
-        headers.add("Other");
-        colorArray.add("#FFFF66");
+        headers.push("Other");
+        colorArray.push("#FFFF66");
         var sel = document.getElementById("OtherLayer");
         sel.style.display = "show"; 
         n++;
@@ -417,8 +417,8 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             break; 
           }
         }
-        headers.add("Things");
-        colorArray.add("#0F1F2E");
+        headers.push("Things");
+        colorArray.push("#0F1F2E");
         var sel = document.getElementById("ThingsLayer");
         sel.style.display = "show"; 
         n++;
