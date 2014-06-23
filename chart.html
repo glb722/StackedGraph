@@ -190,31 +190,34 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
     }
 
     function transitionGrouped() {
-      //console.log("transGrp");
-      y.domain([0, yGroupMax]);
-      //y.call(yAxis);
-      //yAxis=d3.svg.axis().scale(y).tickValues();
-      rescale();
-      rect.transition()
-          .duration(500)
-          .delay(function(d, i) { return i * 10; })
-          .attr("x", function(d, i, j) { console.log("J"+j); return xScale(d.x) + xScale.rangeBand() / n* j ; })
-          .attr("width", xScale.rangeBand() / n)
-        .transition()
-          .attr("y", function(d) { return y(d.y); })
-          .attr("height", function(d) { return height - y(d.y); });
-      
-      rect.on("mouseover", function() { tooltip.style("display", null); })
-        .on("mouseout", function() { tooltip.style("display", "none"); })
-        .on("mousemove", function(d) {
-          var xPosition = d3.mouse(this)[0] - 15;
-          var yPosition = d3.mouse(this)[1] - 25;
-          //console.log("xposition "+xPosition+" yposition "+yPosition);
 
-          tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
-          
-          tooltip.select("text").text(d.y);
+      y.domain([0, yGroupMax]);
+
+      rescale();
+      for(var g=0; g<headers.length; g++)
+      {
+        rect.transition()
+            .duration(500)
+            .delay(function(d, i) { return i * 10; })
+            .attr("x", function(d, i, j) { console.log("J"+j); return xScale(d.x) + xScale.rangeBand() / n* g ; })
+            .attr("width", xScale.rangeBand() / n)
+          .transition()
+            .attr("y", function(d) { return y(d.y); })
+            .attr("height", function(d) { return height - y(d.y); });
+        
+        rect.on("mouseover", function() { tooltip.style("display", null); })
+          .on("mouseout", function() { tooltip.style("display", "none"); })
+          .on("mousemove", function(d) {
+            var xPosition = d3.mouse(this)[0] - 15;
+            var yPosition = d3.mouse(this)[1] - 25;
+
+
+            tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+            
+            tooltip.select("text").text(d.y);
+
         });
+      }
     };
 
     function transitionStacked() {
