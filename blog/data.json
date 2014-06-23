@@ -1,7 +1,7 @@
 [
 
     {
-      "Date":"1/1/14",
+      "Category":"1/1/14",
       "Sent":1234,
       "Received":456,
       "Failed":789,
@@ -12,7 +12,7 @@
     },
  
     {
-        "Date":"1/2/14",
+        "Category":"1/2/14",
         "Sent":1216,
         "Received":748,
         "Failed":2008,
@@ -23,7 +23,7 @@
       },
  
      {
-        "Date":"1/3/14",
+        "Category":"1/3/14",
         "Sent":1035,
         "Received":2782,
         "Failed":457,
@@ -34,7 +34,7 @@
      },
 
     {
-      "Date":"1/4/14",
+      "Category":"1/4/14",
       "Sent":763,
       "Received":2258,
       "Failed":588,
@@ -45,7 +45,7 @@
     },
 
     {
-      "Date":"1/5/14",
+      "Category":"1/5/14",
       "Sent":465,
       "Received":2634,
       "Failed":258,
@@ -56,7 +56,7 @@
     },
 
     {
-      "Date":"1/6/14",
+      "Category":"1/6/14",
       "Sent":150,
       "Received":1091,
       "Failed":541,
@@ -67,7 +67,7 @@
     },
 
     {
-      "Date":"1/7/14",
+      "Category":"1/7/14",
       "Sent":146,
       "Received":852,
       "Failed":458,
@@ -78,7 +78,7 @@
     },
 
     {
-      "Date":"1/8/14",
+      "Category":"1/8/14",
       "Sent":93,
       "Received":1002,
       "Failed":528,
@@ -89,7 +89,7 @@
     },
 
     {
-      "Date":"1/9/14",
+      "Category":"1/9/14",
       "Sent":216,
       "Received":1024,
       "Failed":246,
@@ -100,7 +100,7 @@
     },
 
     {
-      "Date":"1/10/14",
+      "Category":"1/10/14",
       "Sent":149,
       "Received":816,
       "Failed":229,
@@ -111,7 +111,7 @@
     },
 
     {
-      "Date":"1/11/14",
+      "Category":"1/11/14",
       "Sent":219,
       "Received":936,
       "Failed":182,
@@ -122,7 +122,7 @@
     },
 
     {
-      "Date":"1/12/14",
+      "Category":"1/12/14",
       "Sent":52,
       "Received":385,
       "Failed":173,
@@ -133,7 +133,7 @@
     },
 
     {
-      "Date":"1/13/14",
+      "Category":"1/13/14",
       "Sent":95,
       "Received":976,
       "Failed":84,
