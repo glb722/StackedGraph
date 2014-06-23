@@ -227,7 +227,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           .duration(500)
           .delay(function(d, i) { return i * 10; })
           .attr("y", function(d) { return y(d.y0 + d.y); })
-          .attr("height", function(d) { console.log("finding height: "+function(d) { return y(d.y0) - y(d.y0 + d.y)); return y(d.y0) - y(d.y0 + d.y);})
+          .attr("height", function(d) { console.log("finding height: "+function(d) { return y(d.y0) - y(d.y0 + d.y)}); return y(d.y0) - y(d.y0 + d.y);})
         .transition()
           .attr("x", function(d) { return xScale(d.x); })
           .attr("width", xScale.rangeBand());
