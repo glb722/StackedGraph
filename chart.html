@@ -274,11 +274,11 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             {
               headers.splice(k,1);
               colorArray.splice(k,1);
-              console.log("Layer name: "+headersFullCopy[b]+'Layer');
+              //console.log("Layer name: "+headersFullCopy[b]+'Layer');
               var sel = document.getElementById(headersFullCopy[b]+'Layer');
               sel.style.display = "none"; 
               n--; 
-              console.log("Got rid of "+headersFullCopy[b]);
+              //console.log("Got rid of "+headersFullCopy[b]);
             }
           }
           
@@ -314,11 +314,11 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         }
       }
       
-      console.log("headersLength "+headers.length);
+      //console.log("headersLength "+headers.length);
       for(var i = 0; i < headers.length; i++)
       {
-        console.log("i "+i);
-        console.log("headers "+headers[i]);
+        //console.log("i "+i);
+        //onsole.log("headers "+headers[i]);
         var sel = document.getElementById(headers[i]+"Layer");
         //console.log("layers "+layer);
         sel.style.display = "block"; 
