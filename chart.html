@@ -270,7 +270,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
       //n=0; 
       for(var b = 0; b < headersFullCopy.length; b++)
       {
-       console.log("Check Box name: "+headersFullCopy[b]+'CheckBox');
+       
         if(!document.getElementById(headersFullCopy[b]+'CheckBox').checked)
         {
           for(var i = 0; i < headers.length; i++)
@@ -279,7 +279,8 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             {
               headers.splice(i,1);
               colorArray.splice(i,1);
-              var sel = document.getElementById(headersFullCopy[b]+"Layer");
+              console.log("Check Box name: "+headersFullCopy[b]+'Layer');
+              var sel = document.getElementById(headersFullCopy[b]+'Layer');
               sel.style.display = "none"; 
               n--; 
               console.log("Got rid of "+headersFullCopy[b]);
