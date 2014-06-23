@@ -240,7 +240,8 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         var sel = document.getElementById(headers[i]+"Layer");
         console.log("layers "+layer);
         sel.style.display = "none"; 
-        var sel2 = document.getElementById("rect."headers[i]+"Layer");
+        var sel2 = sel.document.getElementByTag("rect");
+        sel2.style.display = "none";
         
       }
       
