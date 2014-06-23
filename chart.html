@@ -197,7 +197,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
 
       rect.transition()
           .duration(500)
-          .delay(function(d, i) { console.log("here"); return i * 10; })
+          .delay(function(d, i) { return i * 10; })
           .attr("x", function(d, i, j) { console.log("J"+j); return xScale(d.x) + xScale.rangeBand() / n* j ; })
           .attr("width", xScale.rangeBand() / n)
         .transition()
@@ -320,7 +320,10 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
       
       transitionGrouped(); 
       d3.select("input[value=\"grouped\"]").property("checked", true).each(change);
-     
+      for(val e=0; e<headers.length; e++)
+      {
+        console.log(headers[e]);
+      }
       
       return false; 
     }
