@@ -47,7 +47,7 @@ form {
     m = 13; // number of samples per layer
     //headers for types of data
     var colorArray = ["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E"];//color selections
-
+    var colorArrayCopy = colorArray; 
 var margin = {top: 20, right: 50, bottom: 100, left: 75},
     width = 740 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
@@ -61,6 +61,7 @@ var svg = d3.select("body").append("svg")
 d3.json("blog/data.json", function (data){ //gets data from the JSON file data.json
     
     var headers = ["Sent","Received","Failed","Success","Other","Things"];
+    var headersFullCopy = headers; 
     var stack = d3.layout.stack();
     var layers = stack(headers.map(function(dataRange) {
         return data.map(function(d) {
@@ -252,225 +253,55 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
       //headers = [];
       //colorArray = [];//["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E", "#d0743c"]
       //n=0; 
-      if(!document.getElementById('sentCheckBox').checked)
+      for(var b = 0; b < headersFullCopy.length; b++)
       {
-        for(var i = 0; i < headers.length; i++)
+        if(!document.getElementById(headersFullCopy[b]+'CheckBox').checked)
         {
-          if(headers[i]=="Sent")
+          for(var i = 0; i < headers.length; i++)
           {
-            headers.splice(i,1);
-            colorArray.splice(i,1);
-            var sel = document.getElementById("SentLayer");
-            sel.style.display = "none"; 
-            n--; 
-            console.log("Got rid of Sent");
-          }
-        }
-        
-      }
-      else
-      {
-        for(var i = 0; i < headers.length; i++)
-        {
-          if(headers[i]=="Sent")
-          {
-            break; 
-          }
-          else if(i == headers.length-1)
-          {
-            headers.push("Sent");
-            colorArray.push("#0000CC");
-            //var sel = document.getElementById("SentLayer");
-            //sel.style.display = "block"; 
-            n++;
-          }
-        }
-        
-      }
-      
-      if(!document.getElementById('receivedCheckBox').checked)
-      {
-        for(var i = 0; i < headers.length; i++)
-        {
-          if(headers[i]=="Received")
-          {
-            headers.splice(i,1);
-            colorArray.splice(i,1);
-            var sel = document.getElementById("ReceivedLayer");
-            sel.style.display = "none"; 
-            n--;
-            console.log("Got rid of Received");
+            if(headers[i]==headersFullCopy[b])
+            {
+              headers.splice(i,1);
+              colorArray.splice(i,1);
+              var sel = document.getElementById(headersFullCopy[b]+"Layer");
+              sel.style.display = "none"; 
+              n--; 
+              console.log("Got rid of "+headersFullCopy[b]);
+            }
           }
           
         }
-         
-      }
-      else
-      {
-        console.log("In received");
-        for(var i = 0; i < headers.length; i++)
+        else
         {
-          console.log("Received i: "+i);
-          if(headers[i]=="Received")
+          if(headers.length == 0)
           {
-            break; 
+              headers.push(headersFullCopy[b]);
+              colorArray.push(colorArrayCopy[b]);
+              //var sel = document.getElementById("SentLayer");
+              //sel.style.display = "block"; 
+              n++;
           }
-          else if(i == headers.length-1)
+          else
           {
-           console.log("IN RECEIVED");
-            headers.push("Received");
-            colorArray.push("#660066");
-            //var sel = document.getElementById("ReceivedLayer");
-            //sel.style.display = "block"; 
-            n++;
+            for(var i = 0; i < headers.length; i++)
+            {
+              if(headers[i]==headersFullCopy[b])
+              {
+                break; 
+              }
+              else if(i == headers.length-1)
+              {
+                headers.push(headersFullCopy[b]);
+                colorArray.push(colorArrayCopy[b]);
+                //var sel = document.getElementById("SentLayer");
+                //sel.style.display = "block"; 
+                n++;
+              }
+            }
           }
         }
-        
       }
       
-      if(!document.getElementById('failedCheckBox').checked)
-      {
-        for(var i = 0; i < headers.length; i++)
-        {
-          if(headers[i]=="Failed")
-          {
-            headers.splice(i,1);
-            colorArray.splice(i,1);
-            var sel = document.getElementById("FailedLayer");
-            sel.style.display = "none"; 
-            n--; 
-            console.log("Got rid of Failed");
-          }
-        }
-        
-      }
-      else
-      {
-        for(var i = 0; i < headers.length; i++)
-        {
-          if(headers[i]=="Failed")
-          {
-            break; 
-          }
-          else if(i == headers.length-1)
-          {
-             headers.push("Failed");
-             colorArray.push("#FF0000");
-             //var sel = document.getElementById("FailedLayer");
-             //sel.style.display = "block"; 
-             n++;
-          }
-        }
-        
-      }
-      
-      if(!document.getElementById('successCheckBox').checked)
-      {
-        for(var i = 0; i < headers.length; i++)
-        {
-          if(headers[i]=="Success")
-          {
-            headers.splice(i,1);
-            colorArray.splice(i,1);
-            var sel = document.getElementById("SuccessLayer");
-            sel.style.display = "none"; 
-            n--;
-            console.log("Got rid of Success");
-          }
-        }
-         
-      }
-      else
-      {
-        for(var i = 0; i < headers.length; i++)
-        {
-          if(headers[i]=="Success")
-          {
-            break; 
-          }
-          else if(i == headers.length-1)
-          {
-             headers.push("Success");
-             colorArray.push("#00E600");
-             //var sel = document.getElementById("SuccessLayer");
-             //sel.style.display = "block"; 
-             n++;
-          }
-        }
-        
-      }
-      
-      if(!document.getElementById('otherCheckBox').checked)
-      {
-        for(var i = 0; i < headers.length; i++)
-        {
-          if(headers[i]=="Other")
-          {
-            headers.splice(i,1);
-            colorArray.splice(i,1);
-            var sel = document.getElementById("OtherLayer");
-            sel.style.display = "none"; 
-            n--; 
-            console.log("Got rid of Other");
-          }
-        }
-        
-      }
-      else
-      {
-        for(var i = 0; i < headers.length; i++)
-        {
-          if(headers[i]=="Other")
-          {
-            break; 
-          }
-          else if(i == headers.length-1)
-          {
-            headers.push("Other");
-            colorArray.push("#FFFF66");
-            //var sel = document.getElementById("OtherLayer");
-            //sel.style.display = "block"; 
-            n++;
-          }
-        }
-        
-      }
-      
-      if(!document.getElementById('thingsCheckBox').checked)
-      {
-        for(var i = 0; i < headers.length; i++)
-        {
-          if(headers[i]=="Things")
-          {
-            headers.splice(i,1);
-            colorArray.splice(i,1);
-            var sel = document.getElementById("ThingsLayer");
-            sel.style.display = "none"; 
-            n--; 
-            console.log("Got rid of Things");
-          }
-        }
-        
-      }
-      else
-      {
-        for(var i = 0; i < headers.length; i++)
-        {
-          if(headers[i]=="Things")
-          {
-            break; 
-          }
-          else if(i == headers.length-1)
-          {
-             headers.push("Things");
-             colorArray.push("#0F1F2E");
-             //var sel = document.getElementById("ThingsLayer");
-             //sel.style.display = "block"; 
-             n++;
-          }
-        }
-        
-      }
       console.log("headersLength "+headers.length);
       for(var i = 0; i < headers.length; i++)
       {
