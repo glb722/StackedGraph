@@ -266,12 +266,16 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           {
             break; 
           }
+          else if(i == headers.length-1)
+          {
+            headers.push("Sent");
+            colorArray.push("#0000CC");
+            var sel = document.getElementById("SentLayer");
+            sel.style.display = "block"; 
+            n++;
+          }
         }
-        headers.push("Sent");
-        colorArray.push("#0000CC");
-        var sel = document.getElementById("SentLayer");
-        sel.style.display = "block"; 
-        n++;
+        
       }
       
       if(!document.getElementById('receivedCheckBox').checked)
@@ -283,6 +287,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             headers.splice(i,1);
             colorArray.splice(i,1);
           }
+          
         }
         var sel = document.getElementById("ReceivedLayer");
         sel.style.display = "none"; 
@@ -296,12 +301,16 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           {
             break; 
           }
+          else if(i == headers.length-1)
+          {
+            headers.push("Received");
+            colorArray.push("#660066");
+            var sel = document.getElementById("ReceivedLayer");
+            sel.style.display = "block"; 
+            n++;
+          }
         }
-        headers.push("Received");
-        colorArray.push("#660066");
-        var sel = document.getElementById("ReceivedLayer");
-        sel.style.display = "block"; 
-        n++;
+        
       }
       
       if(!document.getElementById('failedCheckBox').checked)
@@ -326,12 +335,16 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           {
             break; 
           }
+          else if(i == headers.length-1)
+          {
+             headers.push("Failed");
+             colorArray.push("#FF0000");
+             var sel = document.getElementById("FailedLayer");
+             sel.style.display = "block"; 
+             n++;
+          }
         }
-        headers.push("Failed");
-        colorArray.push("#FF0000");
-        var sel = document.getElementById("FailedLayer");
-        sel.style.display = "block"; 
-        n++;
+        
       }
       
       if(!document.getElementById('successCheckBox').checked)
@@ -356,12 +369,16 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           {
             break; 
           }
+          else if(i == headers.length-1)
+          {
+             headers.push("Success");
+             colorArray.push("#00E600");
+             var sel = document.getElementById("SuccessLayer");
+             sel.style.display = "block"; 
+             n++;
+          }
         }
-        headers.push("Success");
-        colorArray.push("#00E600");
-        var sel = document.getElementById("SuccessLayer");
-        sel.style.display = "block"; 
-        n++;
+        
       }
       
       if(!document.getElementById('otherCheckBox').checked)
@@ -386,12 +403,16 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           {
             break; 
           }
+          else if(i == headers.length-1)
+          {
+            headers.push("Other");
+            colorArray.push("#FFFF66");
+            var sel = document.getElementById("OtherLayer");
+            sel.style.display = "block"; 
+            n++;
+          }
         }
-        headers.push("Other");
-        colorArray.push("#FFFF66");
-        var sel = document.getElementById("OtherLayer");
-        sel.style.display = "block"; 
-        n++;
+        
       }
       
       if(!document.getElementById('thingsCheckBox').checked)
@@ -416,12 +437,16 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           {
             break; 
           }
+          else if(i == headers.length-1)
+          {
+             headers.push("Things");
+             colorArray.push("#0F1F2E");
+             var sel = document.getElementById("ThingsLayer");
+             sel.style.display = "block"; 
+             n++;
+          }
         }
-        headers.push("Things");
-        colorArray.push("#0F1F2E");
-        var sel = document.getElementById("ThingsLayer");
-        sel.style.display = "block"; 
-        n++;
+        
       }
       
       
