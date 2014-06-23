@@ -42,7 +42,7 @@ form {
     var checkbox = document.createElement("input");
 
     checkbox.type = "checkbox";    // make the element a checkbox
-    checkbox.name = headersFullCopy[w]+"CheckBox";      // give it a name we can check on the server side
+    checkbox.id = headersFullCopy[w]+"CheckBox";      // give it a name we can check on the server side
     checkbox.value = headersFullCopy[w];         // make its value "pair"
 
     label.appendChild(checkbox);   // add the box to the element
