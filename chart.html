@@ -204,7 +204,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             console.log("V "+v);
             if(v!= -1)
             {
-               var ret = xScale(d.x) + xScale.rangeBand() / n* (g%n) ; 
+               var ret = xScale(d.x) + xScale.rangeBand() / n* (v) ; 
                g++; 
                console.log("G "+g);
             }
