@@ -197,9 +197,9 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
       var g=0;
       rect.transition()
           .duration(500)
-          .delay(function(d, i) { return i * 10; })
+          .delay(function(d, i) { g=0; return i * 10; })
           .attr("x", function(d, i, j) { 
-            
+
             var v = headers.indexOf(headersFullCopy[j]);
             console.log("V "+v);
             if(v!= -1)
