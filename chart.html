@@ -44,7 +44,7 @@ form {
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
-  var n = 7, // number of layers
+  var n = 6, // number of layers
     m = 13; // number of samples per layer
     //headers for types of data
     var colorArray = ["#0000CC", "#660066", "#FF0000", "#00E600", "#FFFF66", "#0F1F2E", "#d0743c"];//color selections
@@ -61,7 +61,7 @@ var svg = d3.select("body").append("svg")
 
 d3.json("blog/data.json", function (data){ //gets data from the JSON file data.json
     console.log("data[0]"+data[0].length);
-    var headers = ["Sent","Received","Failed","Success","Other","Things", "Blah"];
+    var headers = ["Sent","Received","Failed","Success","Other","Things"];
     var stack = d3.layout.stack();
     var layers = stack(headers.map(function(dataRange) {
         return data.map(function(d) {
