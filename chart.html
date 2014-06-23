@@ -273,12 +273,12 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
        
         if(!document.getElementById(headersFullCopy[b]+'CheckBox').checked)
         {
-          for(var i = 0; i < headers.length; i++)
+          for(var k = 0; k < headers.length; k++)
           {
-            if(headers[i]==headersFullCopy[b])
+            if(headers[k]==headersFullCopy[b])
             {
-              headers.splice(i,1);
-              colorArray.splice(i,1);
+              headers.splice(k,1);
+              colorArray.splice(k,1);
               console.log("Layer name: "+headersFullCopy[b]+'Layer');
               var sel = document.getElementById(headersFullCopy[b]+'Layer');
               sel.style.display = "none"; 
@@ -300,13 +300,13 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           }
           else
           {
-            for(var i = 0; i < headers.length; i++)
+            for(var o = 0; o < headers.length; o++)
             {
-              if(headers[i]==headersFullCopy[b])
+              if(headers[o]==headersFullCopy[b])
               {
                 break; 
               }
-              else if(i == headers.length-1)
+              else if(o == headers.length-1)
               {
                 headers.push(headersFullCopy[b]);
                 colorArray.push(colorArrayCopy[b]);
