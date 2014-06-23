@@ -260,11 +260,12 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           {
             headers.splice(i,1);
             colorArray.splice(i,1);
+            var sel = document.getElementById("SentLayer");
+            sel.style.display = "none"; 
+            n--; 
           }
         }
-        var sel = document.getElementById("SentLayer");
-        sel.style.display = "none"; 
-        n--; 
+        
       }
       else
       {
@@ -294,12 +295,13 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           {
             headers.splice(i,1);
             colorArray.splice(i,1);
+            var sel = document.getElementById("ReceivedLayer");
+            sel.style.display = "none"; 
+            n--;
           }
           
         }
-        var sel = document.getElementById("ReceivedLayer");
-        sel.style.display = "none"; 
-        n--; 
+         
       }
       else
       {
@@ -329,11 +331,12 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           {
             headers.splice(i,1);
             colorArray.splice(i,1);
+            var sel = document.getElementById("FailedLayer");
+            sel.style.display = "none"; 
+            n--; 
           }
         }
-        var sel = document.getElementById("FailedLayer");
-        sel.style.display = "none"; 
-        n--; 
+        
       }
       else
       {
@@ -363,11 +366,12 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           {
             headers.splice(i,1);
             colorArray.splice(i,1);
+            var sel = document.getElementById("SuccessLayer");
+            sel.style.display = "none"; 
+            n--;
           }
         }
-        var sel = document.getElementById("SuccessLayer");
-        sel.style.display = "none"; 
-        n--; 
+         
       }
       else
       {
@@ -397,11 +401,12 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           {
             headers.splice(i,1);
             colorArray.splice(i,1);
+            var sel = document.getElementById("OtherLayer");
+            sel.style.display = "none"; 
+            n--; 
           }
         }
-        var sel = document.getElementById("OtherLayer");
-        sel.style.display = "none"; 
-        n--; 
+        
       }
       else
       {
@@ -431,11 +436,12 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           {
             headers.splice(i,1);
             colorArray.splice(i,1);
+            var sel = document.getElementById("ThingsLayer");
+            sel.style.display = "none"; 
+            n--; 
           }
         }
-        var sel = document.getElementById("ThingsLayer");
-        sel.style.display = "none"; 
-        n--; 
+        
       }
       else
       {
