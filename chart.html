@@ -33,6 +33,8 @@ form {
 </form>
 <form id="checkBoxes" style="top: 50px">
   <script>
+  var headers = ["Sent","Received","Failed","Success","Other","Things"];
+  var headersFullCopy = headers; 
   for(var w=0; w < headersFullCopy.length; w++)
   {
     var label= document.createElement("label");
@@ -73,8 +75,7 @@ var svg = d3.select("body").append("svg")
 
 d3.json("blog/data.json", function (data){ //gets data from the JSON file data.json
     
-    var headers = ["Sent","Received","Failed","Success","Other","Things"];
-    var headersFullCopy = headers; 
+    
     var stack = d3.layout.stack();
     var layers = stack(headers.map(function(dataRange) {
         return data.map(function(d) {
