@@ -299,6 +299,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             var sel = document.getElementById("ReceivedLayer");
             sel.style.display = "none"; 
             n--;
+            console.log("Got rid of Received");
           }
           
         }
@@ -338,6 +339,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             var sel = document.getElementById("FailedLayer");
             sel.style.display = "none"; 
             n--; 
+            console.log("Got rid of Failed");
           }
         }
         
@@ -373,6 +375,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             var sel = document.getElementById("SuccessLayer");
             sel.style.display = "none"; 
             n--;
+            console.log("Got rid of Success");
           }
         }
          
@@ -408,6 +411,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             var sel = document.getElementById("OtherLayer");
             sel.style.display = "none"; 
             n--; 
+            console.log("Got rid of Other");
           }
         }
         
@@ -443,6 +447,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             var sel = document.getElementById("ThingsLayer");
             sel.style.display = "none"; 
             n--; 
+            console.log("Got rid of Things");
           }
         }
         
@@ -475,7 +480,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         //console.log("layers "+layer);
         sel.style.display = "block"; 
         var sel2 = sel.getElementsByTagName("rect");
-        console.log("sel2length "+sel2.length);
+        //console.log("sel2length "+sel2.length);
         for(var j = 0; j < sel2.length; j++)
         {
            sel2[j].style.display = "block";
