@@ -200,7 +200,8 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           .delay(function(d, i) { return i * 10; })
           .attr("x", function(d, i, j) { 
             var g=0;
-            if($.inArray(headersFullCopy[j], headers))
+            var v = headers.indexOf(headersFullCopy[j]);
+            if(v!= -1)
             {
                var ret = xScale(d.x) + xScale.rangeBand() / n* g ; 
                g++; 
