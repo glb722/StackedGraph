@@ -320,7 +320,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
       
       transitionGrouped(); 
       d3.select("input[value=\"grouped\"]").property("checked", true).each(change);
-      for(val e=0; e<headers.length; e++)
+      for(var e=0; e<headers.length; e++)
       {
         console.log(headers[e]);
       }
