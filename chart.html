@@ -236,6 +236,10 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
       var p = -1; 
       var returnVar; 
       var sum; 
+      for(var sumAdd = 0; sumAdd<sum.length; sumAdd++)
+      {
+        sum[sumAdd]=0; 
+      }
       rect.transition()
           .duration(500)
           .delay(function(d, i) { return i * 10; })
