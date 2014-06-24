@@ -347,12 +347,14 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
     {
       //Order Array
       var tempArray = []; 
+      var q=0; 
       for(var s=0; s<p2.length; s++)
       {
         var index = p1.indexOf(p2[s]);
         if(index != -1)
         {
-         tempArray[s] = p1[index];
+         tempArray[q] = p1[index];
+         q++; 
         }
       }
       return tempArray; 
