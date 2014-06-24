@@ -327,7 +327,10 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         }
         
       }
-      
+      for(var s=0; s<headers.length; s++)
+      {
+        console.log("Header "+s+" is "+headers[s]);
+      }
       //var updateXY = svg.call(xScale);
       
       transitionGrouped(); 
