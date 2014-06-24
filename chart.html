@@ -230,13 +230,25 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
     };
 
     function transitionStacked() {
+      var u=0; 
       console.log("transStk");
       y.domain([0, yStackMax]);
       rescale();
       rect.transition()
           .duration(500)
-          .delay(function(d, i) { return i * 10; })
-          .attr("y", function(d) { console.log("d.y0 "+d.y0+"d.y "+d.y+" DCat "+d.Category); return y(d.y0 + d.y); })
+          .delay(function(d, i) { u=0; return i * 10; })
+          .attr("y", function(d) { 
+           var index = headers.indexOf(headersFullCopy[u]);
+           if(index != -1)
+           {
+             return y(d.y0 + d.y); 
+           }
+           else 
+           {
+             return y(0 + d.y);
+           }
+           
+           })
           .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y);})
         .transition()
           .attr("x", function(d) { return xScale(d.x); })
