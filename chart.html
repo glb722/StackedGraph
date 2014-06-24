@@ -236,7 +236,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
       var p = -1; 
       var returnVar; 
       var sum = []; 
-      for(var sumAdd = 0; sumAdd<=m; sumAdd++)
+      for(var sumAdd = 0; sumAdd<m; sumAdd++)
       {
         sum[sumAdd]=0; 
       }
@@ -245,7 +245,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           .delay(function(d, i) { return i * 10; })
 
           .attr("y", function(d) { 
-            if(q%(m-1)==0)
+            if(q%(m)==0)
             {
               p++; 
               q=0; 
