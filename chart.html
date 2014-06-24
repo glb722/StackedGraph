@@ -230,37 +230,13 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
     };
 
     function transitionStacked() {
-      var u=0; 
       console.log("transStk");
       y.domain([0, yStackMax]);
       rescale();
       rect.transition()
           .duration(500)
-          .delay(function(d, i) { u=0; return i * 10; })
-          .attr("y", function(d) { 
-           var index = headers.indexOf(headersFullCopy[u%(headersFullCopy.length)]);
-           var sum;
-           //console.log("U "+u%(headersFullCopy.length));
-           if(u%(headersFullCopy.length) == 0)
-           {
-             sum = 0; 
-             //console.log("U "+u+" sum "+sum);
-           }
-           if(index != -1)
-           {
-             console.log("When in array d.y0 "+d.y0+" d.y "+d.y+" sum "+(d.y0 + d.y)+" yvalue "+y(d.y0 + d.y));
-             sum = sum + d.y; 
-             var r = y(d.y0 + d.y);           
-
-           }
-           else 
-           {
-             console.log("When NOT in array "+y(d.y0));
-             var r = y(d.y0-d.y); 
-           }
-           u++;
-           return r; 
-           })
+          .delay(function(d, i) { return i * 10; })
+          .attr("y", function(d) { console.log("d.y0 "+d.y0+"d.y"+d.y); return y(d.y0 + d.y); })
           .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y);})
         .transition()
           .attr("x", function(d) { return xScale(d.x); })
@@ -275,7 +251,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           tooltip.select("text").text(d.y);
         });
     };
-
+    
     function rescale(){
       svg.select(".y",".axis")
             .transition().duration(1500).ease("sin-in-out")
