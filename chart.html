@@ -242,15 +242,16 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
            if(index != -1)
            {
             console.log("When in array "+y(d.y0 + d.y));
-             return y(d.y0 + d.y); 
+             var r = y(d.y0 + d.y); 
              u++;
+             console.log("U "+u);
            }
            else 
            {
              console.log("When NOT in array "+y(0 + d.y));
-             return y(0 + d.y);
+             var r = y(0 + d.y);
            }
-           
+           return r; 
            })
           .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y);})
         .transition()
