@@ -235,6 +235,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
       var q = 0; 
       var p = -1; 
       var returnVar; 
+      var sum = 1234; 
       rect.transition()
           .duration(500)
           .delay(function(d, i) { return i * 10; })
@@ -248,7 +249,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
             var index = headers.indexOf(headersFullCopy[p]);
             if(index != -1)
             {
-              returnVar = y(1234);
+              returnVar = y(sum);
               console.log("Returnvar "+returnVar);
             } 
             else
