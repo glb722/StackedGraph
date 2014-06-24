@@ -327,24 +327,36 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         }
         
       }
-      //Order Array
-      var tempArray = []; 
-      for(var s=0; s<headersFullCopy.length; s++)
+      for(var f=0; f<headers.length; f++)
       {
-        var index = headers.indexOf(headersFullCopy[s]);
-        if(index != -1)
-        {
-         tempArray[s] = headers[index];
-        }
+       console.log("Header "+f+" is "+headers[f]);
       }
-      headers = tempArray; 
+      headers = OrderArray(headers, headersFullCopy);
       //var updateXY = svg.call(xScale);
-      
+      for(var f=0; f<headers.length; f++)
+      {
+       console.log("Header After Change "+f+" is "+headers[f]);
+      }
       transitionGrouped(); 
       d3.select("input[value=\"grouped\"]").property("checked", true).each(change);
       
       return false; 
     }
+    
+    function OrderArray(p1, p2)
+    {
+      //Order Array
+      var tempArray = []; 
+      for(var s=0; s<p2.length; s++)
+      {
+        var index = p1.indexOf(p2[s]);
+        if(index != -1)
+        {
+         tempArray[s] = p1[index];
+        }
+      }
+      return tempArray; 
+    }//endOrderArray
 
     var tooltip = svg.append("g")
         .attr("class", "tooltip");
