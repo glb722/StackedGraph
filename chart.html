@@ -341,16 +341,10 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         }
         
       }
-      for(var f=0; f<headers.length; f++)
-      {
-       console.log("Header "+f+" is "+headers[f]);
-      }
+      
       headers = OrderArray(headers, headersFullCopy);
       //var updateXY = svg.call(xScale);
-      for(var f=0; f<headers.length; f++)
-      {
-       console.log("Header After Change "+f+" is "+headers[f]);
-      }
+      
       transitionGrouped(); 
       d3.select("input[value=\"grouped\"]").property("checked", true).each(change);
       
