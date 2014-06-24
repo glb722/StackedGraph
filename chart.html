@@ -230,13 +230,33 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
     };
 
     function transitionStacked() {
-      console.log("transStk");
       y.domain([0, yStackMax]);
       rescale();
+      var q = 0; 
+      var p = -1; 
+      var returnVar; 
       rect.transition()
           .duration(500)
           .delay(function(d, i) { return i * 10; })
-          .attr("y", function(d) { console.log("d.y0 "+d.y0+"d.y"+d.y); return y(d.y0 + d.y); })
+
+          .attr("y", function(d) { 
+            if(q%(m-1)==0)
+            {
+              p++; 
+            }
+            var index = headers.indexOf(headersFullCopy[p]);
+            if(index != -1)
+            {
+              returnVar = y(1234);
+            } 
+            else
+            {
+              returnVar = 0; 
+            }
+            return returnVar; 
+          })
+
+
           .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y);})
         .transition()
           .attr("x", function(d) { return xScale(d.x); })
@@ -251,7 +271,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
           tooltip.select("text").text(d.y);
         });
     };
-    
+
     function rescale(){
       svg.select(".y",".axis")
             .transition().duration(1500).ease("sin-in-out")
@@ -328,7 +348,6 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         
       }
       
-      headers = OrderArray(headers, headersFullCopy);
       //var updateXY = svg.call(xScale);
       
       transitionGrouped(); 
@@ -336,23 +355,6 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
       
       return false; 
     }
-    
-    function OrderArray(p1, p2)
-    {
-      //Order Array
-      var tempArray = []; 
-      var q=0; 
-      for(var s=0; s<p2.length; s++)
-      {
-        var index = p1.indexOf(p2[s]);
-        if(index != -1)
-        {
-         tempArray[q] = p1[index];
-         q++; 
-        }
-      }
-      return tempArray; 
-    }//endOrderArray
 
     var tooltip = svg.append("g")
         .attr("class", "tooltip");
