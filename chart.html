@@ -327,10 +327,17 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
         }
         
       }
-      for(var s=0; s<headers.length; s++)
+      //Order Array
+      var tempArray = []; 
+      for(var s=0; s<headersFullCopy.length; s++)
       {
-        console.log("Header "+s+" is "+headers[s]);
+        var index = headers.indexOf(headersFullCopy[s]);
+        if(index != -1)
+        {
+         tempArray[s] = headers[index];
+        }
       }
+      headers = tempArray; 
       //var updateXY = svg.call(xScale);
       
       transitionGrouped(); 
