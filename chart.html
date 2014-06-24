@@ -241,10 +241,12 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
            var index = headers.indexOf(headersFullCopy[u]);
            if(index != -1)
            {
+            console.log("When in array "+y(d.y0 + d.y));
              return y(d.y0 + d.y); 
            }
            else 
            {
+             console.log("When NOT in array "+y(0 + d.y);
              return y(0 + d.y);
            }
            
