@@ -236,7 +236,7 @@ d3.json("blog/data.json", function (data){ //gets data from the JSON file data.j
       rect.transition()
           .duration(500)
           .delay(function(d, i) { return i * 10; })
-          .attr("y", function(d) { console.log("d.y0 "+d.y0+"d.y "+d.y+" D "+d.length); return y(d.y0 + d.y); })
+          .attr("y", function(d) { console.log("d.y0 "+d.y0+"d.y "+d.y+" D "+d.Category); return y(d.y0 + d.y); })
           .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y);})
         .transition()
           .attr("x", function(d) { return xScale(d.x); })
